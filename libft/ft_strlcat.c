@@ -6,10 +6,13 @@
 /*   By: jiwhan <jiwhan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 17:57:31 by jiwhan            #+#    #+#             */
-/*   Updated: 2021/05/05 18:01:37 by jiwhan           ###   ########.fr       */
+/*   Updated: 2021/05/05 18:24:54 by jiwhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+{
+	
+}
