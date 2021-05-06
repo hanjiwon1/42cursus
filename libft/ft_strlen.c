@@ -6,11 +6,11 @@
 /*   By: jiwhan <jiwhan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 13:56:48 by jiwhan            #+#    #+#             */
-/*   Updated: 2021/05/05 17:01:17 by jiwhan           ###   ########.fr       */
+/*   Updated: 2021/05/06 15:16:05 by jiwhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libc.h"
+#include "libft.h"
 
 size_t	ft_strlen(const char *s)
 {

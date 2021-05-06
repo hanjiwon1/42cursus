@@ -1,36 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jiwhan <jiwhan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/05 17:57:31 by jiwhan            #+#    #+#             */
-/*   Updated: 2021/05/06 14:45:10 by jiwhan           ###   ########.fr       */
+/*   Created: 2021/05/06 16:42:13 by jiwhan            #+#    #+#             */
+/*   Updated: 2021/05/06 17:17:23 by jiwhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	size_t	idx;
-	size_t	src_len;
-	size_t	dst_len;
+	size_t	i;
+	size_t	j;
+	size_t	k;
 
-	dst_len = ft_strlen(dst);
-	src_len = ft_strlen(src);
-	if (sizeof(dst) == 0 || sizeof(dst) < dstsize)
-		return (0);
-	if (dst_len >= dstsize)
-		return (dstsize + src_len);
-	idx = 0;
-	while (idx + 1 < dstsize && *src)
+	i = 0;
+	if (ft_strlen(needle) == 0)
+		return ((char *)haystack);
+	while (i < len && haystack[i])
 	{
-		if (dst[idx] == '\0')
-			dst[idx] = *(src++);
-		idx++;
+		if (haystack[i] == needle[0])
+		{
+			j = 0;
+			k = i;
+			while (haystack[k] == needle[j] && k < len)
+			{
+				j++;
+				k++;
+				if (needle[j] == '\0')
+					return ((char *)(haystack + i));
+			}
+		}
+		i++;
 	}
-	dst[idx] = '\0';
-	return (dst_len + src_len);
+	return (0);
 }
