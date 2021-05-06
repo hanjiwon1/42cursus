@@ -10,7 +10,7 @@ void	test_strlcat(void)
 	char dest1[70] = "123";
 	char dest2[70] = "123";
 	printf("dest1: %s\n", dest1);
-	printf("%lu\n", strlcat(dest1, src, 6));
+	//printf("%lu\n", strlcat(dest1, src, 6));
 	printf("dest1: %s\n", dest1);
 	printf("dest2: %s\n", dest2);
 	printf("%lu\n", ft_strlcat(dest2, src, 6));
@@ -35,12 +35,12 @@ void	test_strrchr(void)
 
 void	test_strnstr(void)
 {
-	const char *haystack = "jiwon is good girl";
-	const char *needle;
-	size_t		len = 40;
+	// const char *haystack = "jiwon is good girl";
+	// const char *needle;
+	// size_t		len = 40;
 
 	//printf("strnstr : %s\n", strnstr(haystack, needle, len));
-	printf("ft_strnstr : %s\n", ft_strnstr(haystack, needle, len));
+	//printf("ft_strnstr : %s\n", ft_strnstr(haystack, needle, len));
 }
 
 void	test_strncmp(void)
@@ -52,8 +52,38 @@ void	test_strncmp(void)
 	printf("ft_strncmp : %d\n", ft_strncmp(s1, s2, n));
 }
 
+void	test_atoi(void)
+{
+	const char *str = "aa";
+	printf("atoi : %d\n", atoi(str));
+	printf("ft_atoi : %d\n", ft_atoi(str));
+}
+
+#include <ctype.h>
+
+void	test_isalpha(void)
+{
+	int c = '0';
+	printf("isalpha : %d\n", isalpha(c));
+	printf("ft_isalpha : %d\n", ft_isalpha(c));
+}
+
+void	test_isdigit(void)
+{
+	int c = 'a';
+	printf("isdigit : %d\n", isdigit(c));
+	printf("ft_isdigit : %d\n", ft_isdigit(c));
+}
+
+void	test_isalnum(void)
+{
+	int c = 'A';
+	printf("isalnum : %d\n", isalnum(c));
+	printf("ft_isalnum : %d\n", ft_isalnum(c));
+}
+
 int	main(void)
 {
-	test_strncmp();
+	test_isalnum();
 	return (0);
 }
