@@ -1,32 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jiwhan <jiwhan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/07 14:38:31 by jiwhan            #+#    #+#             */
-/*   Updated: 2021/05/07 18:32:22 by jiwhan           ###   ########.fr       */
+/*   Created: 2021/05/07 17:57:28 by jiwhan            #+#    #+#             */
+/*   Updated: 2021/05/07 19:01:43 by jiwhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-char	*ft_strdup(const char *s)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	s_len;
-	size_t	idx;
 	char	*temp;
+	size_t	size;
+	size_t	idx;
 
-	s_len = ft_strlen(s);
-	idx = 0;
-	if (!(temp = (char *)malloc(sizeof(char) * (s_len + 1))))
+	if (start >= ft_strlen(s))
 		return (0);
-	while (s[idx])
+	if (ft_strlen(s) - (size_t)start > len)
+		size = len + 1;
+	else
+		size = ft_strlen(s) - (size_t)start + 1;
+	printf("size : %d\n", size);
+	if (!(temp = (char *)malloc(sizeof(char) * size)))
+		return (0);
+	ft_memset(temp, 0, size);
+	idx = 0;
+	while (idx < size + 1)
 	{
-		temp[idx] = s[idx];
+		temp[idx] = *(s + (start++));
 		idx++;
 	}
-	temp[idx] = '\0';
 	return (temp);
 }

@@ -110,8 +110,17 @@ void	test_toupper_tolower(void)
 	printf("ft_tolower : %c\n", ft_tolower(c));
 }
 
+void	test_substr(void)
+{
+	char const *s = "0123456789";
+	unsigned int start = 0;
+	size_t len = 5;
+
+	printf("%s\n", ft_substr(s, start, len));
+}
+
 int	main(void)
 {
-	test_toupper_tolower();
+	test_substr();
 	return (0);
 }
