@@ -82,8 +82,36 @@ void	test_isalnum(void)
 	printf("ft_isalnum : %d\n", ft_isalnum(c));
 }
 
+void	test_isascii(void)
+{
+	int c = '-';
+	printf("isascii : %d\n", isascii(c));
+	printf("ft_isascii : %d\n", ft_isascii(c));
+}
+
+void	test_isprint(void)
+{
+	int c = 0;
+	while (c < 128)
+	{
+		printf("isprint %d : %d\n",c ,  isprint(c));
+		printf("ft_isprint %d : %d\n",c, ft_isprint(c));
+		c++;
+	}
+}
+
+void	test_toupper_tolower(void)
+{
+	int c = '0';
+	printf("toupper : %c\n", toupper(c));
+	printf("ft_toupper : %c\n", ft_toupper(c));
+	printf("\n");
+	printf("tolower : %c\n", tolower(c));
+	printf("ft_tolower : %c\n", ft_tolower(c));
+}
+
 int	main(void)
 {
-	test_isalnum();
+	test_toupper_tolower();
 	return (0);
 }

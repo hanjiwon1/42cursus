@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jiwhan <jiwhan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/07 02:30:05 by jiwhan            #+#    #+#             */
-/*   Updated: 2021/05/07 13:30:07 by jiwhan           ###   ########.fr       */
+/*   Created: 2021/05/07 14:30:12 by jiwhan            #+#    #+#             */
+/*   Updated: 2021/05/07 14:43:46 by jiwhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isascii(int c)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	return (c >= 0 && c <= 127);
+	void	*temp;
+
+	if (!(temp = (void *)malloc(size)) || size == 0 || nmemb == 0)
+		return (0);
+	ft_memset(temp, 0, nmemb);
+	return (temp);
 }
