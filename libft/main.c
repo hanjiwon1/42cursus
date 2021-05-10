@@ -4,11 +4,19 @@
 #include <stdlib.h>
 #include "libft.h"
 
+void	test_strlcpy(void)
+{
+	char *src = "abcde";
+	char dest1[10] = "123";
+
+	printf("%lu\n", ft_strlcpy(dest1, src, (10)));
+	printf("%s\n", dest1);
+}
 void	test_strlcat(void)
 {
-	char *src = "abcdef";
-	char dest1[70] = "123";
-	char dest2[70] = "123";
+	char *src = "123456";
+	char dest1[5] = "abcd";
+	char dest2[5] = "abce";
 	printf("dest1: %s\n", dest1);
 	//printf("%lu\n", strlcat(dest1, src, 6));
 	printf("dest1: %s\n", dest1);
@@ -110,17 +118,38 @@ void	test_toupper_tolower(void)
 	printf("ft_tolower : %c\n", ft_tolower(c));
 }
 
+void	test_strdup(void)
+{
+	const char *s = "";
+	printf("%s\n", ft_strdup(s));
+}
+
 void	test_substr(void)
 {
-	char const *s = "0123456789";
-	unsigned int start = 0;
+	char const *s = '\0';
+	unsigned int start = 6;
 	size_t len = 5;
 
 	printf("%s\n", ft_substr(s, start, len));
 }
 
+void	test_strjoin(void)
+{
+	char const *s1 = "1235677";
+	char const *s2 = "abcde";
+
+	printf("%s\n", ft_strjoin(s1, s2));
+}
+
+void	test_strtrim(void)
+{
+	char const *s1 = "abcde";
+	char const *set = "abce";
+	printf("%s\n", ft_strtrim(s1, set));
+}
+
 int	main(void)
 {
-	test_substr();
+	test_strtrim();
 	return (0);
 }

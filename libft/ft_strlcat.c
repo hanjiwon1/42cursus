@@ -6,7 +6,7 @@
 /*   By: jiwhan <jiwhan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 17:57:31 by jiwhan            #+#    #+#             */
-/*   Updated: 2021/05/06 14:45:10 by jiwhan           ###   ########.fr       */
+/*   Updated: 2021/05/10 16:43:04 by jiwhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,14 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 
 	dst_len = ft_strlen(dst);
 	src_len = ft_strlen(src);
-	if (sizeof(dst) == 0 || sizeof(dst) < dstsize)
+	if (dstsize == 0)
 		return (0);
 	if (dst_len >= dstsize)
 		return (dstsize + src_len);
-	idx = 0;
+	idx = dst_len;
 	while (idx + 1 < dstsize && *src)
 	{
-		if (dst[idx] == '\0')
-			dst[idx] = *(src++);
+		dst[idx] = *(src++);
 		idx++;
 	}
 	dst[idx] = '\0';

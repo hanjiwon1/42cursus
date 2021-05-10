@@ -6,7 +6,7 @@
 /*   By: jiwhan <jiwhan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 16:07:25 by jiwhan            #+#    #+#             */
-/*   Updated: 2021/05/05 17:49:51 by jiwhan           ###   ########.fr       */
+/*   Updated: 2021/05/10 16:17:39 by jiwhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,15 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	size_t	idx;
 
 	idx = 0;
-	if (!(*dst) || ft_strlen(dst) < dstsize - 1)
+	if (!dst || !src)
 	{
 		return (0);
 	}
 	if (dstsize == 0)
 		return (ft_strlen(src));
-	while (idx < dstsize-1 && src[idx])
+	while (idx + 1 < dstsize && src[idx])
 	{
+		
 		dst[idx] = src[idx];
 		idx++;
 	}

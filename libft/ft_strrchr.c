@@ -6,7 +6,7 @@
 /*   By: jiwhan <jiwhan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 15:13:27 by jiwhan            #+#    #+#             */
-/*   Updated: 2021/05/06 15:18:50 by jiwhan           ###   ########.fr       */
+/*   Updated: 2021/05/10 17:46:51 by jiwhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ char	*ft_strrchr(const char *s, int c)
 			return ((char *)(s + idx));
 		idx--;
 	}
-	return (0);
+	return (NULL);
 }
