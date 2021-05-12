@@ -6,7 +6,7 @@
 /*   By: jiwhan <jiwhan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 22:20:06 by jiwhan            #+#    #+#             */
-/*   Updated: 2021/05/05 17:52:21 by jiwhan           ###   ########.fr       */
+/*   Updated: 2021/05/12 20:43:03 by jiwhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,7 @@ void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 	}
 	if (idx == n && src_temp[idx] != c)
 		return (NULL);
+	if (idx < n && src_temp[idx] == c)
+		*(dest_temp++) = src_temp[idx];
 	return (dest_temp);
 }

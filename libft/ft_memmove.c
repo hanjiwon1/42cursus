@@ -6,7 +6,7 @@
 /*   By: jiwhan <jiwhan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 00:02:57 by jiwhan            #+#    #+#             */
-/*   Updated: 2021/05/05 17:52:46 by jiwhan           ###   ########.fr       */
+/*   Updated: 2021/05/12 21:58:33 by jiwhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,16 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 
 	src_temp = src;
 	dest_temp = dest;
-	if (src_temp <= dest_temp)
+	if (dest <= src)
 	{
-		ft_memcpy(dest, src, n);
+		ft_memcpy(dest_temp, src_temp, n);
 	}
 	else
 	{
 		idx = n - 1;
-		dest_temp = dest;
-		src_temp = src;
-		while (idx <= 0 && src_temp[idx])
+		while (idx >= 0 && src_temp[idx])
 		{
-			dest_temp[idx] = src_temp[idx];
+			*(dest_temp + idx) = *(src_temp + idx);
 			idx--;
 		}
 	}

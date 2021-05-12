@@ -4,6 +4,76 @@
 #include <stdlib.h>
 #include "libft.h"
 
+void	test_memset(void)
+{
+	//char	*s1 = NULL;
+	char	*s2 = NULL;
+	int		c = 65;
+
+	//memset(s1, c, 20);
+	ft_memset(s2, c, sizeof(s2));
+	//printf("memset : %s\n", s1);
+	printf("ft_memset : %s\n", s2);
+}
+
+void	test_memcpy(void)
+{
+	char dest1[20];
+	char dest2[20];
+	//char *src = "abc";
+
+	memcpy(dest1, "123", 2);
+	ft_memcpy(dest2, "123", 2);
+	printf("memcpy : %s\n", dest1);
+	printf("ft_memcpy : %s\n", dest2);
+}
+
+void	test_memccpy(void)
+{
+	//char	dest1[20];
+	char	dest2[20];
+	char	*src = NULL;
+	char	c = 'g';
+	size_t	n = 6;
+	//memccpy(dest1, src, c, n);
+	ft_memccpy(dest2, src, c, n);
+	//printf("memccpy: %s\n", dest1);
+	printf("ft_memccpy : %s\n", dest2);
+}
+
+void	test_memmove(void)
+{
+	char dest1[10];
+	char dest2[10];
+	char src1[10] = "12345";
+	char src2[10] = "12345";
+	size_t n = 0;
+
+	printf("memmove : %s\n", memmove(dest1, src1, n));
+	printf("ft_memmove : %s\n", ft_memmove(dest2, src2, n));
+	printf("dest1 : %s\n", src1);
+	printf("dest2 : %s\n", src2);
+}
+
+void	test_memchr(void)
+{
+	char *s1 = "1234567";
+	char c = '7';
+	size_t n = 40;
+	printf("memchr : %s\n", memchr(s1, c, n));
+	printf("ft_memchr : %s\n", ft_memchr(s1, c, n));
+}
+
+void	test_memcmp(void)
+{
+	char *s1 = "a123";
+	char *s2 = "a123";
+	size_t n = 0;
+
+	printf("memcmp : %d\n", memcmp(s1, s2, n));
+	printf("ft_memcmp : %d\n", ft_memcmp(s1, s2, n));
+}
+
 void	test_strlcpy(void)
 {
 	char *src = "abcde";
@@ -12,6 +82,7 @@ void	test_strlcpy(void)
 	printf("%lu\n", ft_strlcpy(dest1, src, (10)));
 	printf("%s\n", dest1);
 }
+
 void	test_strlcat(void)
 {
 	char *src = "123456";
@@ -126,7 +197,7 @@ void	test_strdup(void)
 
 void	test_substr(void)
 {
-	char const *s = '\0';
+	char const *s;
 	unsigned int start = 6;
 	size_t len = 5;
 
@@ -150,6 +221,6 @@ void	test_strtrim(void)
 
 int	main(void)
 {
-	test_strtrim();
+	test_memcmp();
 	return (0);
 }

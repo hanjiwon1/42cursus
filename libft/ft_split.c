@@ -6,13 +6,13 @@
 /*   By: jiwhan <jiwhan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 01:44:11 by jiwhan            #+#    #+#             */
-/*   Updated: 2021/05/11 01:44:11 by jiwhan           ###   ########.fr       */
+/*   Updated: 2021/05/12 16:57:18 by jiwhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+// #include "libft.h"
 
-char	**ft_split(char const *s, char c)
-{
+// char	**ft_split(char const *s, char c)
+// {
 	
-}
+// }
