@@ -6,7 +6,7 @@
 /*   By: jiwhan <jiwhan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 15:40:37 by jiwhan            #+#    #+#             */
-/*   Updated: 2021/05/13 15:59:40 by jiwhan           ###   ########.fr       */
+/*   Updated: 2021/05/13 21:11:22 by jiwhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	{
 		ret[idx] = f(idx, *s);
 		idx++;
+		s++;
 	}
 	ret[idx] = '\0';
 	return (ret);

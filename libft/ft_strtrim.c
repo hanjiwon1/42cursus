@@ -6,7 +6,7 @@
 /*   By: jiwhan <jiwhan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 16:49:32 by jiwhan            #+#    #+#             */
-/*   Updated: 2021/05/11 01:44:33 by jiwhan           ###   ########.fr       */
+/*   Updated: 2021/05/13 18:13:11 by jiwhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*temp;
 	size_t	beginning;
 	size_t	end;
+
 	if (!s1)
 		return (NULL);
 	if (!set)
@@ -27,7 +28,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 		beginning++;
 	while (s1[end] && ft_strchr(set, s1[end]) && end > beginning)
 		end--;
-	if(!(temp = (char *)malloc(sizeof(char) * (end - beginning + 2))))
+	if (!(temp = (char *)malloc(sizeof(char) * (end - beginning + 2))))
 		return (NULL);
 	ft_strlcpy(temp, s1 + beginning, (end - beginning + 2));
 	return (temp);

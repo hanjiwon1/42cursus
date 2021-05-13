@@ -6,7 +6,7 @@
 /*   By: jiwhan <jiwhan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 17:57:31 by jiwhan            #+#    #+#             */
-/*   Updated: 2021/05/10 16:43:04 by jiwhan           ###   ########.fr       */
+/*   Updated: 2021/05/13 20:10:08 by jiwhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 
 	dst_len = ft_strlen(dst);
 	src_len = ft_strlen(src);
-	if (dstsize == 0)
-		return (0);
 	if (dst_len >= dstsize)
 		return (dstsize + src_len);
 	idx = dst_len;
