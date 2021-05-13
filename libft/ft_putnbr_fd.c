@@ -1,33 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jiwhan <jiwhan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/05 16:07:25 by jiwhan            #+#    #+#             */
-/*   Updated: 2021/05/13 12:48:58 by jiwhan           ###   ########.fr       */
+/*   Created: 2021/05/13 16:28:28 by jiwhan            #+#    #+#             */
+/*   Updated: 2021/05/13 16:31:41 by jiwhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	idx;
+	char	*str_n;
 
-	idx = 0;
-	if (!dst || !src)
-	{
-		return (0);
-	}
-	if (dstsize == 0)
-		return (ft_strlen(src));
-	while (idx + 1 < dstsize && src[idx])
-	{
-		dst[idx] = src[idx];
-		idx++;
-	}
-	dst[idx] = '\0';
-	return (ft_strlen(src));
+	str_n = ft_itoa(n);
+	write(fd, str_n, ft_strlen(str_n));
 }

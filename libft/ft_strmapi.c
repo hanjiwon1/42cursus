@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jiwhan <jiwhan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/05 16:07:25 by jiwhan            #+#    #+#             */
-/*   Updated: 2021/05/13 12:48:58 by jiwhan           ###   ########.fr       */
+/*   Created: 2021/05/13 15:40:37 by jiwhan            #+#    #+#             */
+/*   Updated: 2021/05/13 15:59:40 by jiwhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
+	char	*ret;
+	size_t	len;
 	size_t	idx;
 
+	if (!s || !f)
+		return (NULL);
+	len = ft_strlen(s);
+	if (!(ret = (char *)malloc(sizeof(char) * (len + 1))))
+		return (NULL);
 	idx = 0;
-	if (!dst || !src)
+	while (*s)
 	{
-		return (0);
-	}
-	if (dstsize == 0)
-		return (ft_strlen(src));
-	while (idx + 1 < dstsize && src[idx])
-	{
-		dst[idx] = src[idx];
+		ret[idx] = f(idx, *s);
 		idx++;
 	}
-	dst[idx] = '\0';
-	return (ft_strlen(src));
+	ret[idx] = '\0';
+	return (ret);
 }
