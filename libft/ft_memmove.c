@@ -6,7 +6,7 @@
 /*   By: jiwhan <jiwhan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 00:02:57 by jiwhan            #+#    #+#             */
-/*   Updated: 2021/05/13 21:11:24 by jiwhan           ###   ########.fr       */
+/*   Updated: 2021/05/13 22:28:59 by jiwhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,20 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	unsigned char	*src_temp;
 	size_t			idx;
 
+	if (n == 0 || dest == src)
+		return (dest);
+	idx = -1;
 	src_temp = (unsigned char *)src;
 	dest_temp = (unsigned char *)dest;
-	if (n == 0)
-		return (dest);
-	if (dest <= src)
+	if (dest_temp < src_temp)
 	{
-		while (n--)
-			*(dest_temp++) = *(src_temp++);
+		while (++idx < n)
+			dest_temp[idx] = src_temp[idx];
 	}
 	else
 	{
-		idx = n - 1;
-		while (idx >= 0 && src_temp[idx])
-		{
-			*(dest_temp + idx) = *(src_temp + idx);
-			idx--;
-		}
+		while (++idx < n)
+			dest_temp[n - idx - 1] = src_temp[n - idx - 1];
 	}
 	return (dest);
 }
