@@ -6,13 +6,13 @@ SRCS_PART1 = ./ft_memset.c ./ft_bzero.c ./ft_memcpy.c ./ft_memccpy.c ./ft_memmov
 
 SRCS_PART2 = ./ft_substr.c ./ft_strjoin.c ./ft_strtrim.c ./ft_split.c ./ft_itoa.c ./ft_strmapi.c ./ft_putchar_fd.c ./ft_putstr_fd.c ./ft_putendl_fd.c ./ft_putnbr_fd.c
 
-#SRCS_BONUS = ./ft_lstnew.c ./ft_lstadd_front.c ./ft_lstsize.c ./ft_lstlast.c ./ft_lstadd_back.c ./ft_lstdelone.c ./ft_lstclear.c ./ft_lstiter.c ./ft_lstmap.c
+SRCS_BONUS = ./ft_lstnew.c ./ft_lstadd_front.c ./ft_lstsize.c ./ft_lstlast.c ./ft_lstadd_back.c ./ft_lstdelone.c ./ft_lstclear.c ./ft_lstiter.c ./ft_lstmap.c
 
 SRCS = $(SRCS_PART1) $(SRCS_PART2)
 
 OBJS = $(SRCS:.c=.o)
 
-#OBJS_BONUS = $(SRCS_BONUS:.c=.o)
+OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
 INCLUDES = ./libft.h
 
@@ -27,7 +27,7 @@ $(NAME) : $(OBJS)
 	ar rc $@ $(OBJS)
 
 clean :
-	rm -f $(OBJS)
+	rm -f $(OBJS) $(OBJS_BONUS)
 
 fclean :
 	rm -f $(NAME)
@@ -37,8 +37,8 @@ run :
 
 re : fclean all
 
-#bonus : $(OBJS) $(OBJS_BONUS)
-#	ar rc $(NAME) $^
+bonus : $(OBJS) $(OBJS_BONUS)
+	ar rc $(NAME) $^
 
 .PHONY : all clean fclean re
 
