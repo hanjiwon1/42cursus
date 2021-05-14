@@ -6,7 +6,7 @@
 /*   By: jiwhan <jiwhan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 22:20:06 by jiwhan            #+#    #+#             */
-/*   Updated: 2021/05/13 19:55:26 by jiwhan           ###   ########.fr       */
+/*   Updated: 2021/05/14 14:26:01 by jiwhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 {
-	const char	*src_temp;
-	char		*dest_temp;
-	size_t		idx;
+	unsigned char	*src_temp;
+	unsigned char	*dest_temp;
+	size_t			idx;
 
 	idx = 0;
-	src_temp = src;
-	dest_temp = dest;
+	src_temp = (unsigned char *)src;
+	dest_temp = (unsigned char *)dest;
 	while (idx < n && src_temp[idx] != c)
 	{
 		*dest_temp = src_temp[idx];
