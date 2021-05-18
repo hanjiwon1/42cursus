@@ -6,7 +6,7 @@
 /*   By: jiwhan <jiwhan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 19:45:44 by jiwhan            #+#    #+#             */
-/*   Updated: 2021/05/14 18:27:48 by jiwhan           ###   ########.fr       */
+/*   Updated: 2021/05/18 14:25:09 by jiwhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,6 @@ void			ft_lstadd_back(t_list **lst, t_list *new);
 void			ft_lstdelone(t_list *lst, void (*del)(void *));
 void			ft_lstclear(t_list **lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
-t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), \
+void (*del)(void *));
 #endif

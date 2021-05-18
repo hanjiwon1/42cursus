@@ -24,12 +24,12 @@ all : $(NAME)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME) : $(OBJS)
-	ar rc $@ $(OBJS)
+	ar rcs $@ $^
 
 clean :
 	rm -f $(OBJS) $(OBJS_BONUS)
 
-fclean :
+fclean : clean
 	rm -f $(NAME)
 
 run :

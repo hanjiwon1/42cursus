@@ -6,7 +6,7 @@
 /*   By: jiwhan <jiwhan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 18:21:35 by jiwhan            #+#    #+#             */
-/*   Updated: 2021/05/14 18:26:57 by jiwhan           ###   ########.fr       */
+/*   Updated: 2021/05/18 14:25:49 by jiwhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	while(lst)
+	while (lst)
 	{
 		f(lst->content);
 		lst = lst->next;

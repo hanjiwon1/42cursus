@@ -6,7 +6,7 @@
 /*   By: jiwhan <jiwhan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 11:25:36 by jiwhan            #+#    #+#             */
-/*   Updated: 2021/05/12 22:14:39 by jiwhan           ###   ########.fr       */
+/*   Updated: 2021/05/18 15:05:42 by jiwhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	*ft_memchr(const void *s1, int c, size_t n)
 {
-	const char	*temp;
+	unsigned char	*temp;
 
-	temp = s1;
+	temp = (unsigned char *)s1;
 	while (n != 0)
 	{
-		if (*temp == c)
+		if (*temp == (unsigned char)c)
 			return ((void *)temp);
 		temp++;
 		n--;
