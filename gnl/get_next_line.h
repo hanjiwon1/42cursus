@@ -6,7 +6,7 @@
 /*   By: jiwhan <jiwhan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 21:05:11 by jiwhan            #+#    #+#             */
-/*   Updated: 2021/06/19 05:10:57 by jiwhan           ###   ########.fr       */
+/*   Updated: 2021/06/19 05:28:48 by jiwhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ typedef struct	s_list
 {
 	int				fd;
 	char			*contents;
-	struct s_list	*prev;
 	struct s_list	*next;
 }				t_list
 
