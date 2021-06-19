@@ -32,9 +32,6 @@ clean :
 fclean : clean
 	rm -f $(NAME)
 
-run :
-	./$(NAME)
-
 re : fclean all
 
 bonus : $(OBJS) $(OBJS_BONUS)
