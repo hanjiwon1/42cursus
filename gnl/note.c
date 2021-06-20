@@ -6,7 +6,7 @@
 /*   By: jiwhan <jiwhan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 21:39:59 by jiwhan            #+#    #+#             */
-/*   Updated: 2021/06/19 05:11:01 by jiwhan           ###   ########.fr       */
+/*   Updated: 2021/06/21 04:34:00 by jiwhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ static int	backup_join(char **backup, char *buf, ssize_t read_size)
 	else
 		tmp = ft_strndup(buf, read_size);
 	*backup = tmp;
-	if (ft_strchr(*backup, '\n'))
-		return (1);
+	if (ft_strchr(*backup, '\n')) //한줄이 온전히 다 읽혀들어갔으면
+		return (1); //1을 리턴
 	return (0);
 }
 //호출되는 함수1 끝
