@@ -6,7 +6,7 @@
 /*   By: jiwhan <jiwhan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 04:03:18 by jiwhan            #+#    #+#             */
-/*   Updated: 2021/06/21 04:34:02 by jiwhan           ###   ########.fr       */
+/*   Updated: 2021/06/21 17:41:31 by jiwhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	len1;
 	size_t	len2;
 	char	*ret;
-	
+
 	len1 = ft_strlen(s1);
 	len2 = ft_strlen(s2);
 	if (!(ret = (char *)malloc(sizeof(char) * (len1 + len2 + 1))))

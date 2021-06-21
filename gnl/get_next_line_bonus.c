@@ -6,7 +6,7 @@
 /*   By: jiwhan <jiwhan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/19 03:05:00 by jiwhan            #+#    #+#             */
-/*   Updated: 2021/06/21 04:40:13 by jiwhan           ###   ########.fr       */
+/*   Updated: 2021/06/21 17:41:53 by jiwhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@ t_list			*ft_lstnew(int fd)
 	t_list *node;
 
 	if (!(node = (t_list *)malloc(sizeof(t_list))))
-			return (NULL);
+		return (NULL);
 	node->fd = fd;
 	node->contents = NULL;
 	node->next = NULL;
 	return (node);
 }
 
-void		ft_lstdelone(t_list **lst, int fd)
+void			ft_lstdelone(t_list **lst, int fd)
 {
 	t_list	*prev;
 	t_list	*curr;
@@ -53,31 +53,14 @@ void		ft_lstdelone(t_list **lst, int fd)
 	return ;
 }
 
-// void			ft_lstadd_back(t_list **lst, t_list *new)
-// {
-// 	t_list *last;
-
-// 	if (!lst || !new)
-// 		return ;
-// 	if (!(*lst))
-// 	{
-// 		*lst = new;
-// 		return ;
-// 	}
-// 	last = *lst;
-// 	while (last->next)
-// 			last = last->next;
-// 	last->next = new;
-// }
-
 static t_list	*find_buf(t_list **backup_buf, int fd)
 {
 	t_list	*temp;
 
-	if (backup_buf == NULL)
+	if (*backup_buf == NULL)
 	{
-		backup_buf = ft_lstnew(fd);
-		return (backup_buf);
+		*backup_buf = ft_lstnew(fd);
+		return (*backup_buf);
 	}
 	temp = *backup_buf;
 	while (temp != NULL)
@@ -132,7 +115,7 @@ int				get_next_line(int fd, char **line)
 		else
 			backup_buf->contents = ft_strjoin(backup_buf->contents, buf);
 		if (ft_strchr(backup_buf->contents, '\n'))
-			break;
+			break ;
 	}
 	free(buf);
 	if (read_size < 0)
