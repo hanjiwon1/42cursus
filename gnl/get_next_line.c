@@ -6,7 +6,7 @@
 /*   By: jiwhan <jiwhan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/19 03:05:00 by jiwhan            #+#    #+#             */
-/*   Updated: 2021/06/21 20:52:18 by jiwhan           ###   ########.fr       */
+/*   Updated: 2021/06/22 22:51:29 by jiwhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,12 @@ static int		check_line(t_list **head, int fd, char **line)
 	t_list	*backup_buf;
 
 	backup_buf = find_buf(head, fd);
-	printf("backup->fd: %d\n", backup_buf->fd);
-	printf("backup->contents: %s\n", backup_buf->contents);
+	if ((backup_buf)->contents == NULL)
+	{
+		*line = ft_strdup("");
+		ft_lstdelone(head, fd);
+		return (0);
+	}
 	if ((ptr = ft_strchr(backup_buf->contents, '\n')))
 	{
 		*ptr = '\0';
@@ -108,33 +112,19 @@ int				get_next_line(int fd, char **line)
 		return (-1);
 	if (!(buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1))))
 		return (-1);
-	printf("1\n");
 	backup_buf = find_buf(&head, fd);
-	printf("2\n");
-	printf("head->fd : %d\n", head->fd);
-	printf("backup_buf->fd : %d\n", backup_buf->fd);
 	while ((read_size = read(fd, buf, BUFFER_SIZE)) > 0)
 	{
-		printf("in while\n");
 		buf[read_size] = '\0';
 		if (backup_buf->contents == NULL)
-		{
-			printf("3\n");
 			backup_buf->contents = ft_strdup(buf);
-			printf("4\n");
-		}
 		else
-		{
-			printf("5\n");
 			backup_buf->contents = ft_strjoin(backup_buf->contents, buf);
-			printf("6\n");
-		}
 		if (ft_strchr(backup_buf->contents, '\n'))
 			break ;
 	}
 	free(buf);
 	if (read_size < 0)
 		return (-1);
-	printf("7\n");
 	return (check_line(&head, fd, line));
 }
