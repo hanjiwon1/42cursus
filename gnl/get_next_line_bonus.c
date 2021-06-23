@@ -6,7 +6,7 @@
 /*   By: jiwhan <jiwhan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/19 03:05:00 by jiwhan            #+#    #+#             */
-/*   Updated: 2021/06/22 23:45:52 by jiwhan           ###   ########.fr       */
+/*   Updated: 2021/06/24 02:54:25 by jiwhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ static int		check_line(t_list **head, int fd, char **line)
 {
 	char	*ptr;
 	t_list	*backup_buf;
+	char	*temp;
 
 	backup_buf = find_buf(head, fd);
 	if ((backup_buf)->contents == NULL)
@@ -90,15 +91,15 @@ static int		check_line(t_list **head, int fd, char **line)
 	{
 		*ptr = '\0';
 		*line = ft_strdup(backup_buf->contents);
+		temp = backup_buf->contents;
 		backup_buf->contents = ft_strdup(ptr + 1);
+		free (temp);
 		return (1);
 	}
-	else
-	{
-		*line = ft_strdup(backup_buf->contents);
-		ft_lstdelone(head, fd);
-		return (0);
-	}
+	*line = ft_strdup(backup_buf->contents);
+	ft_lstdelone(head, fd);
+	return (0);
+
 }
 
 int				get_next_line(int fd, char **line)
