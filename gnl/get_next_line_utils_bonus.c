@@ -6,7 +6,7 @@
 /*   By: jiwhan <jiwhan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 04:03:18 by jiwhan            #+#    #+#             */
-/*   Updated: 2021/06/21 17:39:24 by jiwhan           ###   ########.fr       */
+/*   Updated: 2021/06/25 17:40:58 by jiwhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,17 +61,20 @@ char	*ft_strchr(const char *s, int c)
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	len1;
-	size_t	len2;
-	char	*ret;
+	size_t		len1;
+	size_t		len2;
+	char		*ret;
+	const char	*temp;
 
 	len1 = ft_strlen(s1);
 	len2 = ft_strlen(s2);
+	temp = s1;
 	if (!(ret = (char *)malloc(sizeof(char) * (len1 + len2 + 1))))
 		return (0);
 	ft_memcpy(ret, s1, len1);
 	ft_memcpy(ret + len1, s2, len2);
 	ret[len1 + len2] = '\0';
+	free((char *)temp);
 	return (ret);
 }
 
