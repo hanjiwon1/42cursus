@@ -6,7 +6,7 @@
 #    By: jiwhan <jiwhan@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/06 17:53:03 by jiwhan            #+#    #+#              #
-#    Updated: 2022/02/06 18:43:51 by jiwhan           ###   ########.fr        #
+#    Updated: 2022/02/07 18:37:29 by jiwhan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,9 @@ CFLAGS = -Wall -Wextra -Werror
 
 NAME = libftprintf.a
 LIBFTNAME = libft.a
-LIBFTDIR = ./libft
+LIBFT = libft
 
-SRCS = ft_printf.c ft_prinft_utils.c
+SRCS = ft_printf.c ft_utils.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
@@ -27,17 +27,17 @@ all: $(NAME)
 	$(CC) $(CFLAGS) -c $< -o $@ -I ./
 
 $(NAME) : $(OBJS)
-	make all -C (LIBFTDIR)/
-	cp $(LIBFTDIR)/$(LIBFTFILE) $(NAME)
+	make all -C $(LIBFT)/
+	cp $(LIBFT)/$(LIBFTNAME) $(NAME)
 	ar rc $@ $^
 
 clean :
 	rm -f $(OBJS)
-	make clean -C $(LIBFTDIR)/
+	make clean -C $(LIBFT)
 
 fclean : clean
 	rm -f $(NAME)
-	make fclean -C $(LIBFTDIR)/
+	make fclean -C $(LIBFT)
 
 re : fclean all
 

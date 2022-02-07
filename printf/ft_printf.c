@@ -6,7 +6,7 @@
 /*   By: jiwhan <jiwhan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 18:44:05 by jiwhan            #+#    #+#             */
-/*   Updated: 2022/02/06 21:48:33 by jiwhan           ###   ########.fr       */
+/*   Updated: 2022/02/07 19:40:41 by jiwhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,47 +14,40 @@
 
 static unsigned int	check_format(const char *format, va_list ap)
 {
-	unsigned int	cnt;
-	char			temp;
+	unsigned int	result;
 
-	cnt = 0;
+	result = 0;
 	if (*format == 'c')
-		ft_putchar_fd(va_arg(ap, int), ++cnt);
+		ft_putchar_fd(va_arg(ap, int), ++result);
 	else if (*format == 's')
-		cnt = ft_putstr(va_arg(ap, char *), 0);
-	else if(*format == 'p')
-		cnt = ft_putptr(va_arg(ap, long long));
-	else if(*format == 'd' || *format == 'i')
-	{
-		temp = ft_itoa(va_arg(ap, int));
-		cnt = ft_putstr(temp, 0);
-		free(temp);
-	}
+		result = ft_print_str(va_arg(ap, char *));
+	else if (*format == 'p')
+		result = ft_print_ptr(va_arg(ap, long long));
+	else if (*format == 'd' || *format == 'i')
+		result = ft_print_integer(va_arg(ap, int));
 	else if (*format == 'u')
-		cnt = ft_putnum(1, va_arg(ap, unsigned int), 0);
-	// else if (*format = 'x' || *format == 'X')
-		// cnt = ft_putdex(1, )
-
+		result = ft_print_unsigned_integer(va_arg(ap, unsigned int));
+	else if (*format == 'x' || *format == 'X')
+		result = ft_print_dex(va_arg(ap, unsigned int), *format);
+	else if (*format == '%')
+		ft_putchar_fd('%', ++result);
+	return (result);
 }
-
-/*
-	printf("hihi! 내 이름은 %s야~! 나이는 %d얌", name, age);
-*/
 
 int	ft_printf(const char *format, ...)
 {
-	va_list	ap;
-	unsigned int		result;
+	va_list			ap;
+	unsigned int	result;
 
 	va_start(ap, format);
-	result = check_format(format, ap);
 	result = 0;
 	while (*format)
 	{
 		if (*format != '%' && ++result != 0)
-			ft_putchar_fd(*format++, 1);
+			ft_putchar_fd(*format, 1);
 		else
-			result += format_check(format++, ap);
+			result += check_format(++format, ap);
+		format++;
 	}
 	va_end(ap);
 	return (result);
